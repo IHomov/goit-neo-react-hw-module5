@@ -18,6 +18,16 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+ul {
+  list-style-type: none; 
+  padding: 0; 
+  margin: 0; 
+}
+
+ul li {
+  margin-bottom: 10px; 
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

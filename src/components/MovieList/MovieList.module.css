@@ -1,17 +1,22 @@
 .movieList {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
-  display: grid;
+  
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
+ 
+  
 }
 
-.movieCard {
-  border: 1px solid #ddd;
+.movieItem {
+   color: tomato;
   border-radius: 8px;
   overflow: hidden;
-  background-color: #fff;
-  text-align: center;
+  background-color: #312f2f71;
+  text-align: left;
+}
+.movieItem:hover {
+  transform: scale(1.02);
 }
 
 .moviePoster {
@@ -19,8 +24,9 @@
   height: auto;
 }
 
-h3 {
+h2 {
   margin: 10px 0;
   font-size: 1.2rem;
-  color: #333;
+  color: #868484;
+ margin-left: 20px;
 }

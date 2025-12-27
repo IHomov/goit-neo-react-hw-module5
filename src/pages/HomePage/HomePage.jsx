@@ -1,7 +1,7 @@
-// src/pages/HomePage/HomePage.jsx
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import MovieList from '../../components/MovieList/MovieList';
+import MovieList from '../../components/MovieList/MovieList'; 
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
@@ -32,7 +32,7 @@ const HomePage = () => {
       <h1>Trending Movies Today</h1>
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      <MovieList movies={movies} />
+      <MovieList movies={movies} showImage={false} /> 
     </div>
   );
 };

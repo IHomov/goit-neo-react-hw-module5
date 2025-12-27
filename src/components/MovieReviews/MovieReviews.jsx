@@ -1,10 +1,7 @@
-// src/components/MovieReviews/MovieReviews.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-
-const MovieReviews = () => {
-  const { movieId } = useParams();
+import styles from './MovieReviews.module.css'; 
+const MovieReviews = ({ movieId }) => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,39 +10,38 @@ const MovieReviews = () => {
     axios
       .get(`https://api.themoviedb.org/3/movie/${movieId}/reviews`, {
         params: {
-          api_key: import.meta.env.VITE_TMDB_API_KEY,
+          api_key: import.meta.env.VITE_TMDB_API_KEY, 
         },
       })
       .then((response) => {
-        setReviews(response.data.results);
+        setReviews(response.data.results); 
       })
-      .catch((err) => {
-        setError('Failed to fetch movie reviews.');
+      .catch(() => {
+        setError('Failed to load reviews data');
       })
       .finally(() => {
-        setLoading(false);
+        setLoading(false); 
       });
   }, [movieId]);
 
   return (
-    <div>
+    <div className={styles.reviewsContainer}>
+      <h3>Reviews</h3>
       {loading && <p>Loading reviews...</p>}
       {error && <p>{error}</p>}
-      {reviews.length === 0 ? (
-        <p>No reviews available.</p>
-      ) : (
-        <div>
-          <h2>Reviews</h2>
-          <ul>
-            {reviews.map((review) => (
-              <li key={review.id}>
-                <h3>{review.author}</h3>
-                <p>{review.content}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+      
+      {!loading && reviews.length === 0 && (
+        <p className={styles.noReviews}>We don't have any reviews for this movie.</p>
       )}
+
+      <ul className={styles.reviewList}>
+        {reviews.map((review) => (
+          <li key={review.id} className={styles.reviewItem}>
+            <strong className={styles.author}>Author: {review.author}</strong>
+            <p className={styles.content}>{review.content}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

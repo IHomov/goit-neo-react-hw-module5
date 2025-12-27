@@ -1,0 +1,43 @@
+
+.movieDetails {
+  padding: 20px;
+}
+
+
+.movieDetailsContainer {
+  display: flex;
+  gap: 30px; 
+  align-items: flex-start;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.leftSide {
+  flex-shrink: 0;
+  width: 300px;
+}
+
+
+.leftSide img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+
+.leftSide button {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.rightSide {
+  flex-grow: 1;
+}
+
+.rightSide h1 {
+  margin-top: 0;
+}
