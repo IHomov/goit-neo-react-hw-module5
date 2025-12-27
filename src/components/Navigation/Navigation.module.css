@@ -1,0 +1,18 @@
+/* src/components/Navigation/Navigation.module.css */
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background-color: #333;
+  color: white;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.active {
+  border-bottom: 2px solid yellow;
+}

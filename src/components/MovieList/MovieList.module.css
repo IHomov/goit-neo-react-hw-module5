@@ -1,0 +1,26 @@
+.movieList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.movieCard {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  text-align: center;
+}
+
+.moviePoster {
+  width: 100%;
+  height: auto;
+}
+
+h3 {
+  margin: 10px 0;
+  font-size: 1.2rem;
+  color: #333;
+}

@@ -23,6 +23,7 @@ export default defineConfig([
       },
     },
     rules: {
+      'react/prop-types':0,
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
