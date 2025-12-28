@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import MovieCast from '../../components/MovieCast/MovieCast';
@@ -15,6 +15,7 @@ const MovieDetailsPage = () => {
   
   const navigate = useNavigate();
   const location = useLocation();
+  const backLinkHref = useRef(location.state?.from ?? '/movies');
 
   useEffect(() => {
     axios
@@ -30,8 +31,9 @@ const MovieDetailsPage = () => {
 
   const handleGoBack = () => {
     
-    navigate(location.state?.from || '/movies');
+    navigate(backLinkHref.current);
   };
+
 
   const toggleCast = () => setShowCast(!showCast);
   const toggleReviews = () => setShowReviews(!showReviews);
