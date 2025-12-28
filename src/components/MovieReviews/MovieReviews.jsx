@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import styles from './MovieReviews.module.css'; 
-const MovieReviews = ({ movieId }) => {
+const MovieReviews = () => {
+  const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+     if (!movieId) return;
     axios
       .get(`https://api.themoviedb.org/3/movie/${movieId}/reviews`, {
         params: {

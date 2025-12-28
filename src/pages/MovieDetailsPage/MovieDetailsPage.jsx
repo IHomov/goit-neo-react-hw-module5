@@ -84,8 +84,8 @@ const MovieDetailsPage = () => {
 
           
           <div className={styles.additionalInfo}>
-            {showCast && <MovieCast movieId={movieId} />}
-            {showReviews && <MovieReviews movieId={movieId} />}
+            {showCast && <MovieCast/>}
+            {showReviews && <MovieReviews />}
           </div>
         </div>
       )}
